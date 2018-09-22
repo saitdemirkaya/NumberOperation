@@ -17,34 +17,31 @@ public class Transcription {
 	public static void yazdir(int sayi) {
 		int basamakSayisi = basamak_sayisi(sayi);
 		String kat[] = {"","bin","milyon","milyar"};
-		int blokSayisi = (basamakSayisi/3);// sayıyı 3'erli bloklara böleceğiz.Kaç blok olduğunu blokSayisi tutar.
-		if(basamakSayisi==3) {//3 basamaklı sayı istisna
-			blokSayisi=0;
-		}
+		int blokSayisi = (basamakSayisi/3);// sayÄ±yÄ± 3'erli bloklara bÃ¶leceÄŸiz.KaÃ§ blok olduÄŸunu blokSayisi tutar.
 		/**
-		 * BasamakSayısı sayının kaç basamaklı olduğunu bulur
-		 * Örneğin sayımız 1502789.Basamak sayısı 7.
+		 * BasamakSayÄ±sÄ± sayÄ±nÄ±n kaÃ§ basamaklÄ± olduÄŸunu bulur
+		 * Ã–rneÄŸin sayÄ±mÄ±z 1502789.Basamak sayÄ±sÄ± 7.
 		 * blokSayisi 2 olur ve burdaki 2, kat dizisindeki milyara denk gelir.
-		 * Döngüye sokarak sayıyı baştan okumaya başlıyoruz.
+		 * DÃ¶ngÃ¼ye sokarak sayÄ±yÄ± baÅŸtan okumaya baÅŸlÄ±yoruz.
 		 * 
 		 */
 		while(blokSayisi>=0) {
 			/**
-			 * blokSayısını 1000'in üzerini alarak göndereceğimiz ilk 3lüyü seçiyoruz
-			 * Döngü sonrasında 2. 3'lüyü alır.Ve blokSayısı 0'dan küçük olana kadar okumaya devam eder.
-			 * Gönderilecek sayıyı belirledikten sonra mod işlemi ile okumak için geriye kalan sayıyı belirliyoruz.
+			 * blokSayÄ±sÄ±nÄ± 1000'in Ã¼zerini alarak gÃ¶ndereceÄŸimiz ilk 3lÃ¼yÃ¼ seÃ§iyoruz
+			 * DÃ¶ngÃ¼ sonrasÄ±nda 2. 3'lÃ¼yÃ¼ alÄ±r.Ve blokSayÄ±sÄ± 0'dan kÃ¼Ã§Ã¼k olana kadar okumaya devam eder.
+			 * GÃ¶nderilecek sayÄ±yÄ± belirledikten sonra mod iÅŸlemi ile okumak iÃ§in geriye kalan sayÄ±yÄ± belirliyoruz.
 			 */
-			int gönderilecekSayi = (int) (sayi / Math.pow(1000, blokSayisi));
+			int gÃ¶nderilecekSayi = (int) (sayi / Math.pow(1000, blokSayisi));
 			sayi = (int) (sayi%(Math.pow(1000, blokSayisi)));
-		    ekranaBas(gönderilecekSayi);		
-				if(gönderilecekSayi!=0) {// 0 değilse okumaya devam ediyoruz.
+		    ekranaBas(gÃ¶nderilecekSayi);		
+				if(gÃ¶nderilecekSayi!=0) {// 0 deÄŸilse okumaya devam ediyoruz.
 						System.out.print(kat[blokSayisi]+" ");// kat dizisindeki dizi indexini basar.milyar,bin vs..
 				}			
 			blokSayisi--;
 		}
 	}
 	
-	public static int basamak_sayisi(int sayi) {/*Kaç basamaklı olduğunu belirler*/
+	public static int basamak_sayisi(int sayi) {/*KaÃ§ basamaklÄ± olduÄŸunu belirler*/
 		int x=1,y=1;
 		while(sayi/x>9) {
 			x=x*10;
@@ -53,36 +50,36 @@ public class Transcription {
 		return y;
 	}
 	
-	public static void ekranaBas(int sayi) {// Bölünen 3lülerin değerini ekrana basar.
-		switch(sayi/100) {// yüzler basamağı
-		case 1: System.out.print("yüz "); break;
-		case 2: System.out.print("iki yüz "); break;
-		case 3: System.out.print("üç yüz "); break;
-		case 4: System.out.print("dört yüz "); break;
-		case 5: System.out.print("beş yüz "); break;
-		case 6: System.out.print("altı yüz "); break;
-		case 7: System.out.print("yedi yüz "); break;
-		case 8: System.out.print("sekiz yüz "); break;
-		case 9: System.out.print("dokuz yüz "); break;
+	public static void ekranaBas(int sayi) {// BÃ¶lÃ¼nen 3lÃ¼lerin deÄŸerini ekrana basar.
+		switch(sayi/100) {// yÃ¼zler basamaÄŸÄ±
+		case 1: System.out.print("yÃ¼z "); break;
+		case 2: System.out.print("iki yÃ¼z "); break;
+		case 3: System.out.print("Ã¼Ã§ yÃ¼z "); break;
+		case 4: System.out.print("dÃ¶rt yÃ¼z "); break;
+		case 5: System.out.print("beÅŸ yÃ¼z "); break;
+		case 6: System.out.print("altÄ± yÃ¼z "); break;
+		case 7: System.out.print("yedi yÃ¼z "); break;
+		case 8: System.out.print("sekiz yÃ¼z "); break;
+		case 9: System.out.print("dokuz yÃ¼z "); break;
 		}
 		switch((sayi%100)/10) {//onlar
 		case 1: System.out.print("on "); break;
 		case 2: System.out.print("yirmi "); break;
 		case 3: System.out.print("otuz "); break;
-		case 4: System.out.print("kırk "); break;
+		case 4: System.out.print("kÄ±rk "); break;
 		case 5: System.out.print("elli "); break;
-		case 6: System.out.print("altmış "); break;
-		case 7: System.out.print("yetmiş "); break;
+		case 6: System.out.print("altmÄ±ÅŸ "); break;
+		case 7: System.out.print("yetmiÅŸ "); break;
 		case 8: System.out.print("seksen "); break;
 		case 9: System.out.print("doksan "); break;
 		}
 		switch(sayi%10) {//birler
 		case 1: System.out.print("bir "); break;
 		case 2: System.out.print("iki "); break;
-		case 3: System.out.print("üç "); break;
-		case 4: System.out.print("dört "); break;
-		case 5: System.out.print("beş "); break;
-		case 6: System.out.print("altı "); break;
+		case 3: System.out.print("Ã¼Ã§ "); break;
+		case 4: System.out.print("dÃ¶rt "); break;
+		case 5: System.out.print("beÅŸ "); break;
+		case 6: System.out.print("altÄ± "); break;
 		case 7: System.out.print("yedi "); break;
 		case 8: System.out.print("sekiz "); break;
 		case 9: System.out.print("dokuz "); break;
